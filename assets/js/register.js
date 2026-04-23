@@ -9,12 +9,12 @@ const confirmPasswordInput = document.getElementById('confirmPassword')
 const registerBtn = document.getElementById('registerBtn')
 const successBox = document.getElementById('registerSuccess')
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
     e.preventDefault()
 
     hideAlert('registerAlert')
-    successBox.classList.add('d-none')
-    successBox.textContent = ''
+    successBox?.classList.add('d-none')
+    successBox?.textContent = ''
 
     const name = nameInput.value.trim()
     const email = emailInput.value.trim()
@@ -39,11 +39,11 @@ form.addEventListener('submit', (e) => {
         setButtonLoading(registerBtn, true, '<i class="bi bi-person-plus me-2"></i>Crear Cuenta', 'Creando Cuenta...')
         await registerUser({ name, email, password, favoriteCity })
 
-        successBox.textContent = 'Cuenta creada correctamente'
-        successBox.classList.remove('d-none')
+        successBox?.textContent = 'Cuenta creada correctamente'
+        successBox?.classList.remove('d-none')
 
         setTimeout(() => {
-            window.location.href = './../../dashboard.html'
+            window.location.href = './../../login.html'
         }, 1200)
         } catch (error) {
             showAlert('registerAlert', getFirebaseErrorMessage(error))
