@@ -3,14 +3,14 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut
-} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js";
 
 import {
   doc,
   setDoc,
   getDoc,
   serverTimestamp
-} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
 
 import { auth, db } from "./firebase-config.js";
 
