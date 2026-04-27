@@ -14,16 +14,18 @@ form.addEventListener('submit', async (e) => {
 
     hideAlert('registerAlert')
     successBox?.classList.add('d-none')
-    successBox?.textContent = ''
+    if (successBox) {
+    successBox.textContent = ''
+    }
 
     const name = nameInput.value.trim()
     const email = emailInput.value.trim()
-    const city = cityInput.value.trim()
+    const favoriteCity = cityInput.value.trim()
     const password = passwordInput.value.trim()
     const confirmPassword = confirmPasswordInput.value.trim()
 
-    if (!name || !email || !city || !password || !confirmPassword) {
-        showAlert('registerAlert', 'Todos los daots son obligatorios')
+    if (!name || !email || !favoriteCity || !password || !confirmPassword) {
+        showAlert('registerAlert', 'Todos los datos son obligatorios')
         return
     }
     if (password.length < 6) {
@@ -39,7 +41,9 @@ form.addEventListener('submit', async (e) => {
         setButtonLoading(registerBtn, true, '<i class="bi bi-person-plus me-2"></i>Crear Cuenta', 'Creando Cuenta...')
         await registerUser({ name, email, password, favoriteCity })
 
-        successBox?.textContent = 'Cuenta creada correctamente'
+        if (successBox) {
+        successBox.textContent = 'Cuenta creada correctamente'
+        }
         successBox?.classList.remove('d-none')
 
         setTimeout(() => {

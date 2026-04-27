@@ -1,4 +1,4 @@
-import { hideAlert, showAlert, setButtonLoading, loginUser, observeAuth, getFirebaseErrorMessage } from "./auth";
+import { hideAlert, showAlert, setButtonLoading, loginUser, observeAuth, getFirebaseErrorMessage } from "./auth.js";
 
 const form = document.getElementById('loginForm')
 const emailInput = document.getElementById('loginEmail')
@@ -11,7 +11,7 @@ observeAuth(user => {
     }
 })
 
-form?.addEventListener('submit', (e) => {
+form?.addEventListener('submit', async (e) => {
     e.preventDefault()
 
     hideAlert('loginAlert')
